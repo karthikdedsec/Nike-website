@@ -1,8 +1,10 @@
+import Nav from "./components/Nav";
+
 function App() {
   return (
-    <>
-      <h1 className="text-bold text-4xl">Hello World</h1>
-    </>
+    <div className="p-10 xl:px-24">
+      <Nav />
+    </div>
   );
 }
 
