@@ -27,11 +27,11 @@ function Nav() {
         <ul className="lg:space-x-8 flex flex-col lg:flex-row bg-gray-50 text-lg font-semibold border border-gray-100 lg:border-none lg:bg-transparent rounded-lg p-4">
           {routes.map((route, i) => (
             <li
-              className={`py-2 px-3 lg:hover:bg-transparent${
+              className={`hover:text-blue-500 py-2 px-3 lg:hover:bg-transparent ${
                 i === 0
-                  ? "bg-blue-500 rounded lg:bg-transparent lg:text-blue-500 text-white hover:cursor-pointer"
+                  ? "bg-blue-500 lg:hover:text-blue-700 rounded lg:bg-transparent lg:text-blue-500 text-white hover:cursor-pointer hover:text-white"
                   : "hover:bg-gray-100 hover:cursor-pointer rounded"
-              } ${(i === 3 || i === 4) && "lg:text-white hover:text-blue-500"}`}
+              } ${(i === 3 || i === 4) && "lg:text-white "}`}
               key={route}
             >
               {route}
@@ -40,7 +40,7 @@ function Nav() {
         </ul>
       </div>
       {/* cart button<TbShoppingBag /> */}
-      <div className="fixed left-4 bottom-4 lg:static lg:mr-8">
+      <div className="btn-press-anim fixed left-4 bottom-4 lg:static lg:mr-8">
         <div className="cursor-pointer flex flex-center h-12 w-12 rounded-full bg-white shadow-md">
           <TbShoppingBag />
         </div>
