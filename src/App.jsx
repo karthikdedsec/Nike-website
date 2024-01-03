@@ -4,6 +4,7 @@ import NewArrivalSection from "./components/NewArrivalSection";
 import ShoeDetail from "./components/ShoeDetail";
 import Sidebar from "./components/Sidebar";
 import { SHOE_LIST } from "./constant";
+import Cartitem from "./components/Cartitem";
 
 function App() {
   const [sidebar, setSidebar] = useState(false);
@@ -14,7 +15,10 @@ function App() {
       <ShoeDetail />
       <NewArrivalSection items={SHOE_LIST} />
       <Sidebar isOpen={sidebar} onClickClose={() => setSidebar(!sidebar)}>
-        Hi
+        <h2 className="text-2xl font-bold mb-10">Cart</h2>
+        <Cartitem item={SHOE_LIST[0]} />
+        <Cartitem item={SHOE_LIST[1]} />
+        <Cartitem item={SHOE_LIST[2]} />
       </Sidebar>
     </div>
   );

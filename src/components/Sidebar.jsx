@@ -2,7 +2,7 @@ function Sidebar({ children, isOpen, onClickClose }) {
   return (
     <div>
       <div
-        className={`p-5 fixed top-0 right-0 h-full w-full shadow-lg md:w-[50%] lg:w-[35%] bg-white z-50 transition transform duration-300 ${
+        className={`overflow-y-auto p-5 fixed top-0 right-0 h-full w-full shadow-lg md:w-[50%] lg:w-[35%] bg-white z-50 transition transform duration-300 ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
