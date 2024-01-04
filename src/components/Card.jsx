@@ -1,6 +1,7 @@
-function Card({ item }) {
+function Card({ item, onClick }) {
   return (
     <div
+      onClick={() => onClick(item)}
       className={`${item.className} shadow-lg max-w-xl cursor-pointer transform transition hover:scale-105`}
     >
       <div className="p-8">

@@ -11,12 +11,12 @@ function Nav({ onClickSidebar }) {
     <nav className="flex flex-wrap justify-between items-center relative z-10">
       {/* Logo */}
       <a href="#">
-        <NikeLogo className="h-20 w-20" />
+        <NikeLogo className="h-20 w-20 dark:fill-white" />
       </a>
       {/* burger button */}
       <button
         onClick={() => setMobileMenu(!mobileMenu)}
-        className="lg:hidden p-2 focus:ring-2 focus:ring-gray-200 rounded-lg hover:bg-gray-100"
+        className="lg:hidden p-2 focus:ring-2 focus:ring-gray-200 rounded-lg hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700"
       >
         <RxHamburgerMenu size={25} />
       </button>
@@ -24,7 +24,7 @@ function Nav({ onClickSidebar }) {
       <div
         className={`${mobileMenu ? "" : "hidden"} w-full lg:w-auto lg:block `}
       >
-        <ul className="lg:space-x-8 flex flex-col lg:flex-row bg-gray-50 text-lg font-semibold border border-gray-100 lg:border-none lg:bg-transparent rounded-lg p-4">
+        <ul className="lg:space-x-8 flex flex-col lg:flex-row bg-gray-50 text-lg font-semibold border border-gray-100 lg:border-none lg:bg-transparent rounded-lg p-4 lg:dark:text-white">
           {routes.map((route, i) => (
             <li
               className={`hover:text-blue-500 py-2 px-3 lg:hover:bg-transparent ${

@@ -18,6 +18,29 @@ const FAKE_CART_ITEM = SHOE_LIST.map((shoe) => {
 
 function App() {
   const [sidebar, setSidebar] = useState(false);
+  const [currentShoe, setCurrentShoe] = useState(SHOE_LIST[1]);
+  const [cartItem, setCartItem] = useState([]);
+  console.log(cartItem);
+
+  sidebar
+    ? (document.body.style.overflow = "hidden")
+    : (document.body.style.overflow = "auto");
+
+  const addToCart = (product, qty, size) => {
+    if (qty && size) {
+      const updatedCartItems = [...cartItem];
+      const existingItemIndex = cartItem.findIndex(
+        (item) => item.product.id === product.id
+      );
+      if (existingItemIndex > -1) {
+        updatedCartItems[existingItemIndex].qty = qty;
+        updatedCartItems[existingItemIndex].size = size;
+      } else {
+        updatedCartItems.push({ product, qty, size });
+      }
+      setCartItem(updatedCartItems);
+    }
+  };
 
   useEffect(() => {
     const isDarkMode = localStorage.getItem("isDarkMode");
@@ -36,10 +59,10 @@ function App() {
   };
 
   return (
-    <div className="animate-fadeIn p-7 xl:px-24">
+    <div className="animate-fadeIn p-7 xl:px-24 dark:bg-night-50">
       <Nav onClickSidebar={() => setSidebar(true)} />
-      <ShoeDetail />
-      <NewArrivalSection items={SHOE_LIST} />
+      <ShoeDetail onClickAdd={addToCart} shoe={currentShoe} />
+      <NewArrivalSection onClickCard={setCurrentShoe} items={SHOE_LIST} />
       <Sidebar isOpen={sidebar} onClickClose={() => setSidebar(!sidebar)}>
         <Cart cartItems={FAKE_CART_ITEM} />
       </Sidebar>
